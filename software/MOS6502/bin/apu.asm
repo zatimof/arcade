@@ -787,9 +787,9 @@ met73:
 	
 ; обработка монетоприемника
 met90:
-	CLC
-	LDA mins
-	ADC #$05
+	CLC				;добавляем одну минуту на
+	LDA mins		;каждый импульс
+	ADC #$01
 	STA mins
 	AND #$0F
 	CMP #$0A
@@ -805,7 +805,7 @@ met92:
 	CMP #$61
 	BMI met91
 
-	LDA #$60
+	LDA #$60		;максимум - 60 минут
 	STA mins
 	
 met91:
